@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css' //Primero importar bootstrap
+import './index.css';//Despues importar CSS
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
