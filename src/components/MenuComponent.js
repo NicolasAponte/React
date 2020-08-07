@@ -1,16 +1,12 @@
 import React, { Component } from 'react'; //Importar Component
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
-import DishDetail from './DishdetailComponent';
 
 class Menu extends Component {//Extender Component
 
 	constructor(props) {
 		super(props); 
 
-		this.state = {//Propiedades
-            selectedDish: null,
 
-        }
         console.log('Menu Component constructo is invoked');
     }
     
@@ -19,28 +15,15 @@ class Menu extends Component {//Extender Component
     }
 
 
-    onDishSelect(dish) {
-        this.setState({selectedDish: dish});
-    }
 
-    renderDish(dish) {
-        if (dish != null){
-            return(
-                <DishDetail plato={dish}/>
-            );
-        }else {
-            return(
-                <div></div>
-            );
-        }
-    }
+
 
 	render() {
 		//Definicion de constantes
 		const menu = this.props.dishes.map((dish) => {
 			return (
 				<div key={dish.id} className="col-12 col-md-5 m-1">
-					<Card onClick={() => this.onDishSelect(dish)}>
+					<Card onClick={() => this.props.onClick(dish.id)}>
 						<CardImg width="100%" src={dish.image} alt={dish.name}></CardImg>
                         <CardImgOverlay>
                             <CardTitle>{dish.name}</CardTitle>
@@ -55,7 +38,6 @@ class Menu extends Component {//Extender Component
 				<div className="row">
                     {menu}{/*Constante JS, construccion del item menu*/}
 				</div>
-                    {this.renderDish(this.state.selectedDish)}
 			</div>
 		);
 	}
