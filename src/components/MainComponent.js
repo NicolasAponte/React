@@ -26,6 +26,7 @@ class Main extends Component {
   }
 
 
+
   render(){
 
     const HomePage = () => { {/**Forma larga*/}
@@ -35,12 +36,22 @@ class Main extends Component {
         leader={this.state.leaders.filter((leader) => leader.featured)[0]}/>
       );
     }
+
+    const DishWithId = ({match}) => { {/*Solo tiene en cuenta el match */}
+    return(
+      <DishDetail dish={this.state.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]}
+      comments={this.state.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))}
+      />
+    );
+  }
+
     return (
       <div>
         <Header />
         <Switch>{/*Se usa para contener los Route */}
           <Route path="/home" component={HomePage} />
           <Route exact path="/menu" component={() => <Menu dishes={this.state.dishes} />} /> {/*Forma corta */}
+          <Route path="/menu/:dishId" component={DishWithId} />
           <Route exact path="/contactus" component={Contact} />
           <Redirect to="/home" />{/*Direccion por defecto */}
         </Switch>
