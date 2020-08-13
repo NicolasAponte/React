@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Breadcrumb, BreadcrumbItem, Label,Button,Col,Row, FormGroup } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Label,Button,Col,Row } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import {Control,LocalForm,Errors} from 'react-redux-form';
 {/*Es necesario convertir el componente funcional en una clase componente 
