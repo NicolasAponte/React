@@ -19,4 +19,4 @@ export const ConfigureStore = () => {
     return store;
 }
 
-{/*Reducer.js deja de ser necesario ya que los states ahoa son suministrados por los reducer individuales*/}
+{/*Reducer.js deja de ser necesario ya que los states ahora son suministrados por los reducer individuales*/}

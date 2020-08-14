@@ -21,7 +21,7 @@ class CommentForm extends Component {
     }
 
     handleSubmit(values) {
-        alert("Current State is:" +JSON.stringify(values));
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
     toggleModal() {
@@ -46,11 +46,11 @@ class CommentForm extends Component {
                                     <Col>
                                         <Label htmlFor="rating">Rating</Label>
                                         <Control.select model=".rating" name="rating" className="form-control">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                            <option >1</option>
+                                            <option >2</option>
+                                            <option >3</option>
+                                            <option >4</option>
+                                            <option >5</option>
                                         </Control.select>
                                     </Col>
                                 </Row>
@@ -106,7 +106,7 @@ function RenderDish({dish}) {
 }
 
 
-function RenderComments({comm}) {
+function RenderComments({comm, addComment, dishId}) {
     if (comm != null){
         return (
             <div className="col-12 col-md-5 m-1"  align="left">
@@ -122,7 +122,7 @@ function RenderComments({comm}) {
                         );
                     })}
                 </ul>
-                <CommentForm />
+                <CommentForm dishId={dishId} addComment={addComment}/>
             </div>
         );
     }else{
@@ -149,7 +149,10 @@ const DishDetail = (props) => {
                 </div>
                 <div className="row">
                     <RenderDish dish={props.dish} />
-                    <RenderComments comm={props.comments} />
+                    <RenderComments comm={props.comments} 
+                        addComment={props.addComment}
+                        dishId={props.dish.id}
+                    />
                 </div>
             </div>
             );            
