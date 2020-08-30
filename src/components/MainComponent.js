@@ -34,11 +34,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 class Main extends Component {
 
-  constructor(props) {
-
-    super(props);
-
-  }
   //LifeCycle solo sera llamado despues de que el componente ha sido montado en la vista de la aplicacion
   componentDidMount() {
     this.props.fetchDishes();
@@ -67,7 +62,7 @@ class Main extends Component {
       );
     }
 
-    const DishWithId = ({match}) => { {/*Solo tiene en cuenta el match */}
+    const DishWithId = ({match}) => { //Solo tiene en cuenta el match 
     
     return(
       <DishDetail dish={this.props.dishes.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]}
@@ -75,7 +70,7 @@ class Main extends Component {
       errMess={this.props.dishes.errMess}
       
       comments={this.props.comments.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))}
-      errMess={this.props.comments.errMess}
+      errmess={this.props.comments.errMess}
       postComment = {this.props.postComment}
       />
     );

@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import { Breadcrumb, BreadcrumbItem, Label,Button,Col,Row } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import {Control, Form, Errors} from 'react-redux-form';
-{/*Es necesario convertir el componente funcional en una clase componente 
-para poder guardar el state del Form en el React Component*/}
+//Es necesario convertir el componente funcional en una clase componente 
+//para poder guardar el state del Form en el React Component
 
 
 const required = (val) => (val) && (val.length);
@@ -18,9 +18,9 @@ class Contact extends Component {
     constructor(props) {
         super(props);
 
-        {/*Con React-Redux-Form ya no es necesario tener los states explicitamente,
-        debido a que los state seran administrados por este, lo mismo sucede con
-        handlerBur, handleInputChange y las validaciones*/}
+        //*Con React-Redux-Form ya no es necesario tener los states explicitamente,
+       // debido a que los state seran administrados por este, lo mismo sucede con
+        //handlerBur, handleInputChange y las validaciones*/}
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -35,7 +35,7 @@ class Contact extends Component {
 
 
 
-    render () { {/*Es necesaria la funcion render al usar class component*/} 
+    render () { //*Es necesaria la funcion render al usar class component*/} 
         return(
             <div className="container">
                 <div className="row">
@@ -69,7 +69,7 @@ class Contact extends Component {
                     <div className="col-12 col-sm-11 offset-sm-1">
                         <div className="btn-group" role="group">
                             <a role="button" className="btn btn-primary" href="tel:+85212345678"><i className="fa fa-phone"></i> Call</a>
-                            <a role="button" className="btn btn-info"><i className="fa fa-skype"></i> Skype</a>
+                            <a role="button" className="btn btn-info" href="skype"><i className="fa fa-skype"></i> Skype</a>
                             <a role="button" className="btn btn-success" href="mailto:confusion@food.net"><i className="fa fa-envelope-o"></i> Email</a>
                         </div>
                     </div>
